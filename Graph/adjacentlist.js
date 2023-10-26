@@ -9,16 +9,7 @@ class Graph {
       }
     }
   
-    addEdge(vertex1, vertex2) {
-      if (!this.adjacencyList[vertex1]) {
-        this.addVertex(vertex1);
-      }
-      if (!this.adjacencyList[vertex2]) {
-        this.addVertex(vertex2);
-      }
-      this.adjacencyList[vertex1].add(vertex2);
-      this.adjacencyList[vertex2].add(vertex1);
-    }
+ 
     removeEdge(verTex1, verTex2) {
       this.adjacencyList[verTex1].delete(verTex2);
       this.adjacencyList[verTex2].delete(verTex1);
@@ -37,6 +28,17 @@ class Graph {
         this.adjacencyList[vertex1].has(vertex2) &&
         this.adjacencyList[vertex2].has(vertex1)
       );
+    }
+
+    addEdge(vertex1, vertex2) {
+      if (!this.adjacencyList[vertex1]) {
+        this.addVertex(vertex1);
+      }
+      if (!this.adjacencyList[vertex2]) {
+        this.addVertex(vertex2);
+      }
+      this.adjacencyList[vertex1].add(vertex2);
+      this.adjacencyList[vertex2].add(vertex1);
     }
     bfs(start) {
       let queue = [start];

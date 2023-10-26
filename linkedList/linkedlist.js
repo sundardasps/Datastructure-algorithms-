@@ -65,15 +65,7 @@ class Linkedist {
     m.next = node;
   }
 
-  findMiddleNode() {
-    let slow = this.head;
-    let fast = this.head;
-    while (fast && fast.next) {
-      slow = slow.next;
-      fast = fast.next.next;
-    }
-    console.log(slow.value);
-  }
+
 
   prime() {
     let m = this.head;
@@ -92,6 +84,17 @@ class Linkedist {
       m = m.next;
     }
   }
+
+  findMiddleNode() {
+    let slow = this.head;
+    let fast = this.head;
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    console.log(slow.value);
+  }
+  
 }
 
 let linked = new Linkedist();
