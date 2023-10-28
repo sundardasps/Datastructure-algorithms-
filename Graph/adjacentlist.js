@@ -23,7 +23,7 @@ class Graph {
       }
       delete this.adjacencyList[verTex];
     }
-    hasedge(vertex1, vertex2) {
+    hasedges(vertex1, vertex2) {
       return (
         this.adjacencyList[vertex1].has(vertex2) &&
         this.adjacencyList[vertex2].has(vertex1)
@@ -74,7 +74,7 @@ class Graph {
   greph.addEdge("a", "b");
   greph.addEdge("b", "c");
   
-  console.log(greph.hasedge("a", "d"));
+  console.log(greph.hasedges("a", "d"));
   
   greph.removeEdge("a", "b");
  greph.display()
