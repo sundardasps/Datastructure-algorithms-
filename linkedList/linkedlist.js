@@ -9,7 +9,7 @@ class Linkedist {
   constructor() {
     this.head = null;
   }
-
+//---------------------------------------------------- Add first
   addFirst(value) {
     let node = new Node(value);
     if (!this.head) {
@@ -19,7 +19,7 @@ class Linkedist {
       this.head = node;
     }
   }
-
+//---------------------------------------------------- Add last
   addlast(value) {
     let node = new Node(value);
     if (!this.head) {
@@ -32,7 +32,7 @@ class Linkedist {
       m.next = node;
     }
   }
-
+//---------------------------------------------------- Print
   print() {
     let m = this.head;
     while (m) {
@@ -40,7 +40,7 @@ class Linkedist {
       m = m.next;
     }
   }
-
+//---------------------------------------------------- Delete
   delete(value) {
     let m = this.head;
     while (m.next) {
@@ -51,7 +51,7 @@ class Linkedist {
     }
     m.next = m.next.next;
   }
-
+//---------------------------------------------------- Update Value
   addData(value, olddata) {
     let node = new Node(value);
     let m = this.head;
@@ -64,13 +64,10 @@ class Linkedist {
     node.next = m.next;
     m.next = node;
   }
-
-
-
+//---------------------------------------------------- Prime
   prime() {
     let m = this.head;
     while (m) {
-     
       let count = 0;
       for (let j = 2; j < m.value; j++) {
         if (m.value % j == 0) {
@@ -84,7 +81,7 @@ class Linkedist {
       m = m.next;
     }
   }
-
+//---------------------------------------------------- Middlevalue
   findMiddleNode() {
     let slow = this.head;
     let fast = this.head;
@@ -94,15 +91,56 @@ class Linkedist {
     }
     console.log(slow.value);
   }
-  
+//---------------------------------------------------- Sorting section
+  mergeSort(arr) {
+    if (arr.length <= 1) {
+      return arr;
+    }
+
+    let mid = Math.floor(arr.length - 1 / 2);
+    let left = arr.slice(0, mid);
+    let rigth = arr.slice(mid);
+
+    return this.merge(this.mergeSort(left), this.mergeSort(rigth));
+  }
+  merge(left, right) {
+    let sorted = [];
+    while (left.length && right.length) {
+      if (left[0] <= right[0]) {
+        sorted.push(left.shift());
+      } else {
+        sorted.push(right.shift());
+      }
+    }
+    return [...sorted, ...left, ...right];
+  }
+
+  sort() {
+    let arr = [];
+    let curr = this.head;
+    let i = 0;
+    while (curr) {
+      arr.push(curr.value);
+      curr = curr.next;
+    }
+
+    let arr2 = this.mergeSort(arr);
+    let mm = this.head;
+    while (mm) {
+      mm.value = arr2[i];
+      i++;
+      mm = mm.next;
+    }
+  }
 }
 
 let linked = new Linkedist();
 
+linked.addlast(3);
 linked.addlast(1);
 linked.addlast(2);
-linked.addlast(3);
-linked.addlast(4);
 linked.addlast(5);
+linked.addlast(4);
 
-linked.prime();
+linked.sort();
+linked.print();

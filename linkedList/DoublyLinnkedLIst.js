@@ -14,7 +14,7 @@ class DoubleLink {
 
     addNode(value) {
         const temp = new Node(value);
-        if (this.=head === null) {
+        if (this.head === null) {
             this.head = temp;
             this.tail = temp;
         } else {

@@ -5,11 +5,17 @@ function binary(arr, tar) {
     for (let i = 0; i <low + high; i++) {
       let mid = Math.floor(low + high) / 2;
       if (arr[mid] === tar) {
-        console.log(tar)
+        console.log(mid,"pppppppppppp")
         return mid;
       } else if (arr[mid] < tar) {
+        console.log(low,"ooooooooooooo")
+
         low = mid + 1;
+        console.log(low,"ggggggggggggg")
+
       } else {
+        console.log(high,"ffffffffffffff")
+
         high = mid - 1;
       }
     }
