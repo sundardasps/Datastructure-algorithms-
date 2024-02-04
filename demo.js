@@ -1,15 +1,19 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
+function a (){
+    
+    let a = {
+        value : 100
+    }
+
+    b(a)
+    console.log(a.value,"a");
+
 }
 
-class linkedList {
-  constructor() {
-    this.head = null;
-  }
 
-  addfirst(value) {
-    const node = new Node(value);
-    if (!this.head) {
+function b(a){
+   
+    let c = a.value + 10
+    console.log(c,"b");
+}
+
+a()
