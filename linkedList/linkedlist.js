@@ -132,6 +132,22 @@ class Linkedist {
       mm = mm.next;
     }
   }
+
+  normalSort(){
+    let temp = this.head
+    while(temp){
+      let temp2 = temp.next
+      while(temp2){
+         if(temp.value > temp2.value){
+          let demmy = temp2.value
+          temp2.value = temp.value
+          temp.value = demmy
+         }
+          temp2 = temp2.next
+      }
+      temp = temp.next
+    }
+  }
 }
 
 let linked = new Linkedist();
@@ -142,5 +158,5 @@ linked.addlast(2);
 linked.addlast(5);
 linked.addlast(4);
 
-linked.sort();
+linked.normalSort();
 linked.print();
